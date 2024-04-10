@@ -4,11 +4,11 @@
   <input [hidden]="loginSuccess" type="text" placeholder="username" [(ngModel)]="usr"><br>
   <input [hidden]="loginSuccess" type="password" placeholder="password" [(ngModel)]="psw"><br>
 
-  <button [hidden]="loginSuccess" (click)="login()">Login</button>
+  <button [hidden]="loginSuccess" (click)="login(null, false)">Login</button>
   <button [hidden]="loginSuccess" (click)="register()">Registrati</button>
 
   <div *ngIf="loginSuccess">
-    <p>Login effettuato con successo!<br>Benvenuto {{usr}}</p>
+    <p>Login effettuato con successo!<br>Benvenuto <b>{{usr}}</b>!</p>
     <button (click)="logout()">Logout</button>
   </div>
   <div *ngIf="loginError">

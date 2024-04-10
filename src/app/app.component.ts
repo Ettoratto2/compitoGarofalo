@@ -26,13 +26,14 @@ export class AppComponent {
 
   login(bodyP:any, useBodyParam:boolean){
 
-    if(useBodyParam){
-      
+    let body:any
+
+    if(!useBodyParam){
+      body = '{"username": "'+this.usr+'", "password": "'+this.psw+'"}'
+      JSON.stringify(body)
     }else{
-      let body:any = bodyP
+      body = bodyP
     }
-    let body = '{"username": "'+this.usr+'", "password": "'+this.psw+'"}'
-    JSON.stringify(body)
     this.dbAccess.post(body, "login").subscribe(remoteData => {this.data = remoteData
       if(this.data.valid){
         this.loginSuccess = true
